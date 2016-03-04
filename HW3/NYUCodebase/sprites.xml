@@ -1,0 +1,5 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="Basketball.png" x="56" y="57" width="50" height="49"/>
+	<SubTexture name="Basketball_Hoop.png" x="0" y="0" width="64" height="55"/>
+	<SubTexture name="New-York-Knicks-Logo.png" x="0" y="57" width="54" height="55"/>
+</TextureAtlas>
