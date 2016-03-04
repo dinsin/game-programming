@@ -91,8 +91,7 @@ void GameApp::DrawText(int fontTexture, string text, float size, float spacing, 
     glDisableVertexAttribArray(program->texCoordAttribute);
 }
 
-GameApp::GameApp() :
-lastFrameTicks(0.0f), done(false){
+GameApp::GameApp():lastFrameTicks(0.0f), done(false){
     Setup();
 }
 
@@ -221,7 +220,7 @@ void GameApp::UpdateGameLevel(float elapsed) {
 				}
 				else {
 					enemy.x += 0.15f * enemyDirection;
-					if (enemy.x < -3.0f || enemy.x > 3.0f) {
+					if (enemy.x < -3.1f || enemy.x > 3.1f) {
 						enemyHitWall = true;
 					}
 				}
@@ -230,7 +229,7 @@ void GameApp::UpdateGameLevel(float elapsed) {
 		moveDown = false;
 		if (enemyHitWall) {
 			moveDown = true;
-			enemyDirection *= -1.0f;
+			enemyDirection = -enemyDirection;
 			enemyHitWall = false;
 		}
 		timeCounter -= 0.15f;
@@ -247,7 +246,7 @@ void GameApp::UpdateGameLevel(float elapsed) {
 					enemy.active = false;
 					bullet.active = false;
 					score += 100;
-					numEnemies--;
+					numEnemies -= 1;
 					if (numEnemies <= 0) {
 						RenderMainMenu();
 					}
@@ -280,14 +279,13 @@ void GameApp::RenderGameLevel() {
     player->hitboxHeight = player->height * 0.4f;
     player->hitboxWidth = player->width * 0.4f;
     
-    enemies.clear();
-
 	bullet = Entity();
 	bullet.active = false;
 	bullet.sprite = SheetSprite(spritesTexture, 56.0f / 128.0f, 57.0f / 128.0f, 50.0f / 128.0f, 49.0f / 128.0f, .25f);
 	bullet.hitboxHeight = bullet.height * 0.25f;
 	bullet.hitboxWidth = bullet.width * 0.25f;
     
+	enemies.clear();
     for (int row = 0; row < 3; row++) {
         for (int column = 0; column < 6; column++) {
             Entity enemy;
