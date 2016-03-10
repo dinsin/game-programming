@@ -24,6 +24,7 @@ CONTROLS: SPACE to start game, LEFT & RIGHT to move, UP to shoot
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include "ShaderProgram.h"
 #include "Matrix.h"
@@ -77,6 +78,10 @@ private:
     
     GLuint spritesTexture;
     GLuint fontTexture;
+
+	Mix_Chunk* shootSound;
+	Mix_Chunk* killSound;
+	Mix_Music* bgm;
     
     int state;    
     int score;

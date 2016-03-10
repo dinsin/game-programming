@@ -111,6 +111,12 @@ void GameApp::Setup() {
 #endif
     
     glViewport(0, 0, 1280, 720);
+
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+	bgm = Mix_LoadMUS("hiphopBGM.wav");
+	Mix_PlayMusic(bgm, -1);
+	shootSound = Mix_LoadWAV("shootball.wav");
+	killSound = Mix_LoadWAV("swish.wav");
     
     projectionMatrix.setOrthoProjection(-3.55, 3.55, -2.0, 2.0, -1.0, 1.0);
     
@@ -245,6 +251,7 @@ void GameApp::UpdateGameLevel(float elapsed) {
 				if (bullet.collidesWith(enemy)) {
 					enemy.active = false;
 					bullet.active = false;
+					Mix_PlayChannel(-1, killSound, 0);
 					score += 100;
 					numEnemies -= 1;
 					if (numEnemies <= 0) {
@@ -301,8 +308,9 @@ void GameApp::RenderGameLevel() {
 }
 
 void GameApp::shootBullet() {				// Function that hires the firing of a bullet by the player
-    if (!bullet.active) {
+	if (!bullet.active) {
         bullet.active = true;
+		Mix_PlayChannel(-1, shootSound, 0);
         bullet.x = player->x;
         bullet.y = player->y;
     }
