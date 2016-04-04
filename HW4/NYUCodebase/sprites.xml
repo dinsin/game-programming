@@ -1,0 +1,3 @@
+<TextureAtlas imagePath="sprites.png">
+	<SubTexture name="space_cartoon.png" x="0" y="0" width="579" height="512"/>
+</TextureAtlas>
