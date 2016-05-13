@@ -3,7 +3,7 @@
 Dinesh Singh
 CS3913 Intro to Game Programming
 Prof. Ivan Safrin
-Homework #4 (Platformer)
+Final Project
 
 GameApp
 
@@ -22,6 +22,7 @@ have to be used by variable of another.
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include "ShaderProgram.h"
 #include "Matrix.h"
@@ -48,10 +49,18 @@ using namespace std;
 #define LEVEL_HEIGHT 16
 #define LEVEL_WIDTH 22
 
-#define TILE_SIZE 1.0f
+#define FOREST_TILE_SIZE 1.0f
+#define SEWERS_TILE_SIZE 1.0f
+#define CAVE_TILE_SIZE 1.0f
 
-#define SPRITE_COUNT_X 16
-#define SPRITE_COUNT_Y 8
+#define FOREST_SPRITE_COUNT_X 16
+#define FOREST_SPRITE_COUNT_Y 8
+
+#define SEWERS_SPRITE_COUNT_X 16
+#define SEWERS_SPRITE_COUNT_Y 22
+
+#define CAVE_SPRITE_COUNT_X 14
+#define CAVE_SPRITE_COUNT_Y 8
 
 class GameApp {
 public:
@@ -61,6 +70,8 @@ public:
 
 	void DrawText(int fontTexture, string text, float size, float spacing, float x, float y);
 
+	void DrawHUD(int fontTexture, string text, float size, float spacing, float x, float y);
+
 	void Setup();
 
 	bool ProcessUpdateAndRender();
@@ -69,6 +80,8 @@ public:
 	void Update(float elapsed);
 
 	void RenderMainMenu();
+	void RenderLevelSelect();
+	void RenderRoundOver();
 
 	void UpdateGameLevel(float elapsed);
 	void RenderGameLevel();
@@ -76,9 +89,12 @@ public:
 	void worldToTileCoordinates(float worldX, float worldY, int *gridX, int *gridY);
 	bool checkIfSolid(int gridX, int gridY, unsigned char levelData[LEVEL_HEIGHT][LEVEL_WIDTH]);
 	void buildLevel();
-	void renderTilemap();
+	void renderForestTilemap();
+	void renderSewersTilemap();
+	void renderCaveTilemap();
 
 	void shootBullet(Entity* player);
+	float lerp(float from, float to, float time);
 
 	bool isDone();
 
@@ -96,18 +112,33 @@ private:
 	float timeLeftOver;
 
 	Entity* player1;
+	int p1kills = 0;
 	Entity* player2;
+	int p2kills = 0;
 	vector<Entity*> players;
 	vector<Entity> projectiles;
+	Entity* winner;
 
-	GLuint blocksTexture;
+	GLuint forestTexture;
+	GLuint sewersTexture;
+	GLuint caveTexture;
 	GLuint playerTexture;
 	GLuint fontTexture;
 	GLuint bulletTexture;
 
+	Mix_Music* menuBGM;
+	Mix_Music* forestBGM;
+	Mix_Music* sewersBGM;
+	Mix_Music* caveBGM;
+	Mix_Chunk* shootSFX;
+	Mix_Chunk* jumpSFX;
+	Mix_Chunk* gameoverSFX;
+
 	float timeCount;
 
 	int state;
+	int level;
+	int musicState;
 
 	unsigned char levelData[LEVEL_HEIGHT][LEVEL_WIDTH];
 

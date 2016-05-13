@@ -1,0 +1,26 @@
+﻿Build started 5/12/2016 5:21:13 PM.
+     1>Project "C:\Users\Dinesh\Documents\Visual Studio 2013\Projects\CS3113 (Game Programming)\Final Project\NYUCodebase\NYUCodebase.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\SDL2\include /IC:\SDL2_image\include /IC:\glew\include /IC:\SDL2_mixer\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _WINDOWS /D _MBCS /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameApp.cpp
+         GameApp.cpp
+     1>GameApp.cpp(54): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>GameApp.cpp(55): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>GameApp.cpp(56): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>GameApp.cpp(153): warning C4018: '<' : signed/unsigned mismatch
+     1>GameApp.cpp(195): warning C4018: '<' : signed/unsigned mismatch
+     1>GameApp.cpp(1045): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dinesh\Documents\Visual Studio 2013\Projects\CS3113 (Game Programming)\Final Project\Release\NYUCodebase.exe" /NOLOGO /LIBPATH:C:\SDL2_mixer\lib\x86 /LIBPATH:C:\SDL2\lib\x86 /LIBPATH:C:\SDL2_image\lib\x86 /LIBPATH:C:\glew\lib\Release\Win32 SDL2.lib SDL2_mixer.lib glew32.lib SDL2main.lib SDL2_image.lib OpenGL32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Dinesh\Documents\Visual Studio 2013\Projects\CS3113 (Game Programming)\Final Project\Release\NYUCodebase.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dinesh\Documents\Visual Studio 2013\Projects\CS3113 (Game Programming)\Final Project\Release\NYUCodebase.lib" /MACHINE:X86 /SAFESEH Release\GameApp.obj
+         Release\Entity.obj
+         Release\main.obj
+         Release\Matrix.obj
+         Release\ShaderProgram.obj
+         Release\SheetSprite.obj
+         Generating code
+         Finished generating code
+         NYUCodebase.vcxproj -> C:\Users\Dinesh\Documents\Visual Studio 2013\Projects\CS3113 (Game Programming)\Final Project\Release\NYUCodebase.exe
+     1>Done Building Project "C:\Users\Dinesh\Documents\Visual Studio 2013\Projects\CS3113 (Game Programming)\Final Project\NYUCodebase\NYUCodebase.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.93

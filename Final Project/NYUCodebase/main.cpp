@@ -4,7 +4,7 @@ Dinesh Singh
 CS3113 - Intro to Game Programming
 Prof. Ivan Safrin
 
-Assignment #4: Simple Platformer
+Final Project
 
 */
 

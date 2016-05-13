@@ -37,6 +37,8 @@ public:
 	float direction_y;
 
 	bool isStatic;
+	float health;
+	int jumps;
 
 	bool active;
 
